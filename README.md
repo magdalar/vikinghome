@@ -36,6 +36,8 @@ $ pip install pyglet
 
 This is the 'game' library we're using for running the main app.
 
+Documentation: http://pyglet.readthedocs.io/en/pyglet-1.3-maintenance/
+
 5. Install requests (2.19.1 at time of writing):
 
 ```shell
@@ -43,6 +45,8 @@ $ pip install requests
 ```
 
 This is used for HTTP fetching.
+
+Documentation: http://requests.readthedocs.io/en/master/
 
 ### Mac OS X
 
