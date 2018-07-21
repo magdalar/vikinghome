@@ -6,6 +6,7 @@ Customized home control app for the Viking Homestead.
 This code is intended to run on a Raspberry Pi with a Touchscreen, running semi-permanently as a full-screen application in order to supply access to:
 
 * A webcam view (TyCam), which we're using as a supplemental baby monitor
+  * Assumes use of https://elinux.org/RPi-Cam-Web-Interface
 * Sonos music controls
 * Philips Hue lighting controls
 

@@ -2,13 +2,11 @@ import io
 import pyglet
 import requests
 
-import event_object
 import image_utils
 
 class WebCam(object):
-    def __init__(self, window):
+    def __init__(self):
         super(WebCam, self).__init__()
-        self.window = window
         self.total_bytes = 0
         self.total_time = 0
         self.image = pyglet.resource.image('no_image_available.png')
@@ -20,12 +18,6 @@ class WebCam(object):
 
     def unschedule(self):
         pyglet.clock.unschedule(self.update)
-
-    def on_hide(self):
-        self.unschedule()
-
-    def on_show(self):
-        self.schedule()
 
     def update(self, dt=None):
         cam_url = 'http://192.168.86.24/cam_pic.php'
@@ -40,19 +32,8 @@ class WebCam(object):
         image_bytes = io.BytesIO(response.content)
         self.image = pyglet.image.load('cam.jpg', file=image_bytes)
         image_utils.CenterImage(self.image)
+        #print('WebCam image: origin:', (self.x, self.y), 'size:',
+        #      (self.image.width, self.image.height))
 
     def draw(self):
-        self.image.blit(self.window.width // 2, self.window.height // 2)
-
-class WebCamPanel(event_object.DelegatingEventObject):
-    def __init__(self, window):
-        super(WebCamPanel, self).__init__()
-        self.webcam = WebCam(window)
-        self.label = pyglet.text.Label(
-            'TyCam',
-            font_name='Times New Roman', font_size=36,
-            x=window.width//2, y=window.height-30,
-            anchor_x='center',
-            anchor_y='center')
-        self.add_child(self.webcam)
-        self.add_child(self.label)
+        self.image.blit(self.x, self.y)
