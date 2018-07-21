@@ -15,8 +15,10 @@ This code is intended to run on a Raspberry Pi with a Touchscreen, running semi-
 2. Create a virtual development environment:
 
 ```shell
-$ python -m venv env
+$ python3 -m venv env
 ```
+
+This creates a directory 'env', where the project-specific development environment will live. This directory is excluded by `.gitignore`, so will not be checked in or version-controlled.
 
 3. Activate the environment:
 
@@ -24,17 +26,23 @@ $ python -m venv env
 $ source ./env/bin/activate
 ```
 
+This will put the environment at the front of your `PATH`, et al. It also provides a `deactivate` function to run if you wish to re-use the shell without logging out.
+
 4. Install pyglet (1.3.2 at time of writing):
 
 ```shell
 $ pip install pyglet
 ```
 
+This is the 'game' library we're using for running the main app.
+
 5. Install requests (2.19.1 at time of writing):
 
 ```shell
 $ pip install requests
 ```
+
+This is used for HTTP fetching.
 
 ### Mac OS X
 
