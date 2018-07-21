@@ -1,12 +1,11 @@
+import io
 import pyglet
 import requests
-
-from io import BytesIO
 
 import event_object
 import image_utils
 
-class WebCam(event_object.EventObject):
+class WebCam(object):
     def __init__(self, window):
         super(WebCam, self).__init__()
         self.window = window
@@ -38,7 +37,7 @@ class WebCam(event_object.EventObject):
             self.total_bytes += size
             self.total_time += dt
             #print('Avg KiB/s:', int(self.total_bytes / self.total_time / 1024))
-        image_bytes = BytesIO(response.content)
+        image_bytes = io.BytesIO(response.content)
         self.image = pyglet.image.load('cam.jpg', file=image_bytes)
         image_utils.CenterImage(self.image)
 

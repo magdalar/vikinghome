@@ -15,6 +15,12 @@ class VikingHomeWindow(pyglet.window.Window):
         self.clear()
         self.webcam_panel.draw()
 
+    def on_hide(self):
+        self.webcam_panel.on_hide()
+
+    def on_show(self):
+        self.webcam_panel.on_show()
+
     def on_key_press(self, symbol, modifiers):
         if symbol == key.Q:
             print('User requested we exit.')
