@@ -1,17 +1,4 @@
-class EventObject(object):
-    def __init__(self):
-        pass
-
-    def on_hide(self):
-        pass
-
-    def on_show(self):
-        pass
- 
-    def draw(self):
-        pass
-
-class DelegatingEventObject(EventObject):
+class DelegatingEventObject(object):
     def __init__(self):
         super(DelegatingEventObject, self).__init__()
         self.children = []
@@ -21,12 +8,15 @@ class DelegatingEventObject(EventObject):
 
     def on_hide(self):
         for child in self.children:
-            child.on_hide()
+            if hasattr(child, 'on_hide'):
+                child.on_hide()
 
     def on_show(self):
         for child in self.children:
-            child.on_show()
+            if hasattr(child, 'on_show'):
+                child.on_show()
  
     def draw(self):
         for child in self.children:
-            child.draw()
+            if hasattr(child, 'draw'):
+                child.draw()
