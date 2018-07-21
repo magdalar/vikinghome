@@ -34,5 +34,7 @@ class VikingHomeWindow(pyglet.window.Window):
             print('The left mouse button was pressed.')
 
 if __name__ == '__main__':
+    pyglet.resource.path = ['../resources']
+    pyglet.resource.reindex()
     window = VikingHomeWindow()
     pyglet.app.run()

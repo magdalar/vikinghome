@@ -11,7 +11,7 @@ class WebCam(object):
         self.window = window
         self.total_bytes = 0
         self.total_time = 0
-        self.image = pyglet.image.load('resources/no_image_available.png')
+        self.image = pyglet.resource.image('no_image_available.png')
         image_utils.CenterImage(self.image)
         self.schedule()
 
