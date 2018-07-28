@@ -4,6 +4,9 @@ import requests
 
 import image_utils
 
+
+CAM_URL = 'http://192.168.86.23/cam_pic.php'
+
 class WebCam(object):
     def __init__(self):
         super(WebCam, self).__init__()
@@ -20,10 +23,9 @@ class WebCam(object):
         pyglet.clock.unschedule(self.update)
 
     def update(self, dt=None):
-        cam_url = 'http://192.168.86.24/cam_pic.php'
-        response = requests.get(cam_url)
+        response = requests.get(CAM_URL)
         if response.status_code != 200:
-            print('Failed to fetch image from', cam_url, 'code was:', response.status_code)
+            print('Failed to fetch image from', CAM_URL, 'code was:', response.status_code)
         size = len(response.content)
         if dt:
             self.total_bytes += size
