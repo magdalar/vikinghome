@@ -37,7 +37,7 @@ class WebCam(object):
           image_utils.CenterImage(self.image)
           #print('WebCam image: origin:', (self.x, self.y), 'size:',
           #      (self.image.width, self.image.height))
-        except e:
+        except Exception as e:
             print('Failed to fetch webcam', e)
 
     def draw(self):

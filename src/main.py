@@ -56,6 +56,7 @@ class VikingHomeWindow(pyglet.window.Window):
     def __init__(self, screen_size=(800, 480)):
         super(VikingHomeWindow, self).__init__(
             caption='VikingHome',
+            fullscreen=True,
             width=screen_size[0],
             height=screen_size[1])
         self.batch = pyglet.graphics.Batch()
