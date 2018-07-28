@@ -32,11 +32,11 @@ class WebCamPanel(panel.Panel):
         print('WebCam image: origin:', (self.webcam.x, self.webcam.y), 'size:',
               (self.webcam.image.width, self.webcam.image.height))
 
-        self.record_label = TextLabel(
-            'Record (90s)',
-            relative_origin=(0.5, 0.1), font_size=18)
-        self.add_child(self.record_label)
-        self.record_label.PrintOrigin()
+        #self.record_label = TextLabel(
+        #    'Record (90s)',
+        #    relative_origin=(0.5, 0.1), font_size=18)
+        #self.add_child(self.record_label)
+        #self.record_label.PrintOrigin()
 
 class LightsPanel(panel.Panel):
     def __init__(self, **kwargs):
@@ -69,19 +69,19 @@ class VikingHomeWindow(pyglet.window.Window):
             relative_origin=(0, 0),
             batch=self.batch))
 
-        self.panels.append(SonosPanel(
-            name='SonosPanel',
-            screen_size=screen_size,
-            relative_panel_size=(0.36, 0.5),
-            relative_origin=(0.64, 0),
-            batch=self.batch))
+        #self.panels.append(SonosPanel(
+        #    name='SonosPanel',
+        #    screen_size=screen_size,
+        #    relative_panel_size=(0.36, 0.5),
+        #    relative_origin=(0.64, 0),
+        #    batch=self.batch))
 
-        self.panels.append(LightsPanel(
-            name='LightsPanel',
-            screen_size=screen_size,
-            relative_panel_size=(0.36, 0.5),
-            relative_origin=(0.64, 0.5),
-            batch=self.batch))
+        #self.panels.append(LightsPanel(
+        #    name='LightsPanel',
+        #    screen_size=screen_size,
+        #    relative_panel_size=(0.36, 0.5),
+        #    relative_origin=(0.64, 0.5),
+        #    batch=self.batch))
 
         #self.push_handlers(pyglet.window.event.WindowEventLogger())
 

@@ -5,7 +5,7 @@ import requests
 import image_utils
 
 
-CAM_URL = 'http://192.168.86.23/cam_pic.php'
+CAM_URL = 'http://192.168.86.34/cam_pic.php'
 
 class WebCam(object):
     def __init__(self):
