@@ -63,4 +63,6 @@ Then just run:
 $ python3 src/main.py
 ```
 
+Or use the `run.sh` script provided. If you cloned your repository somewhere other than $HOME/code/vikinghome/, you'll need to update the `VIKINGHOME` environment variable in the script.
+
 Use 'q' to quit.
