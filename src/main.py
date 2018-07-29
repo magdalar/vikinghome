@@ -7,11 +7,11 @@ import panel
 import webcam
 
 class TextLabel(pyglet.text.Label):
-    def __init__(self, content, relative_origin, font_size=36):
+    def __init__(self, content, relative_origin, font_size=36, anchor_x='center', anchor_y='center'):
         super(TextLabel, self).__init__(
             content,
             font_name='Times New Roman', font_size=font_size,
-            anchor_x='center', anchor_y='center')
+            anchor_x=anchor_x, anchor_y=anchor_y)
         self.name = content
         self.relative_origin = relative_origin
 
@@ -37,6 +37,18 @@ class WebCamPanel(panel.Panel):
         #    relative_origin=(0.5, 0.1), font_size=18)
         #self.add_child(self.record_label)
         #self.record_label.PrintOrigin()
+
+        self.quit_label = TextLabel(
+            'Quit',
+            relative_origin=(0.5, 0.1), font_size=18,
+            anchor_x='left', anchor_y='bottom')
+        self.add_child(self.quit_label)
+        self.quit_label.PrintOrigin()
+        self.add_click_event_handler(self.quit_label, self.quit_clicked)
+
+    def quit_clicked(self, x, y, button, modifiers):
+        print('Quit clicked!')
+        pyglet.app.exit()
 
 class LightsPanel(panel.Panel):
     def __init__(self, **kwargs):
@@ -106,8 +118,8 @@ class VikingHomeWindow(pyglet.window.Window):
             webcam.update()
 
     def on_mouse_press(self, x, y, button, modifiers):
-        if button == mouse.LEFT:
-            print('The left mouse button was pressed.')
+        for panel in self.panels:
+            panel.on_mouse_press(x, y, button, modifiers)
 
 if __name__ == '__main__':
     pyglet.resource.path = ['../resources']
