@@ -12,7 +12,7 @@ This code is intended to run on a Raspberry Pi with a Touchscreen, running semi-
 
 ## Setup & Dependencies
 
-1. Install python3 (3.7 at time of writing)
+1. Install python3 (3.8 at time of writing)
 2. Create a virtual development environment:
 
 ```shell
@@ -29,25 +29,20 @@ $ source ./env/bin/activate
 
 This will put the environment at the front of your `PATH`, et al. It also provides a `deactivate` function to run if you wish to re-use the shell without logging out.
 
-4. Install pyglet (1.3.2 at time of writing):
+
+4. Install dependencies:
+
+| Name | Version | Description | URL |
+| pyglet | 1.3.2 | The 'game' library we're using for running the main app | http://pyglet.readthedocs.io/en/pyglet-1.3-maintenance/ |
+| requests | 2.23.0 | HTTP Fetching | http://requests.readthedocs.io/en/master/ |
+| pyzbar | 0.1.8 | QRCode reader. Also install zbar on your system (`brew install zbar`). | https://pypi.org/project/pyzbar/ |
+| opencv-python | 4.2 | Computer-Vision library, for image processing. | https://pypi.org/project/opencv-python/ |
+
 
 ```shell
-$ pip install pyglet
+brew install zbar
+pip install pyglet requests pyzbar opencv-python
 ```
-
-This is the 'game' library we're using for running the main app.
-
-Documentation: http://pyglet.readthedocs.io/en/pyglet-1.3-maintenance/
-
-5. Install requests (2.19.1 at time of writing):
-
-```shell
-$ pip install requests
-```
-
-This is used for HTTP fetching.
-
-Documentation: http://requests.readthedocs.io/en/master/
 
 ### Mac OS X
 
